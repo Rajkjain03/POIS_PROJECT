@@ -153,18 +153,37 @@ Folders created but not yet filled:  (Others will implement these)
 ## Running Tests
 
 ```bash
+# Create and activate environment
+python3 -m venv venv
+source venv/bin/activate
+
 # Install dependencies
-pip install -r requirements.txt
+python3 -m pip install -r requirements.txt
 
 # Run all your tests
-pytest tests/test_pa1.py tests/test_pa2.py tests/test_pa13.py -v
+python3 -m pytest tests/test_pa1.py tests/test_pa2.py tests/test_pa13.py -v
 
 # Run specific test
-pytest tests/test_pa1.py::TestDLP_OWF -v
+python3 -m pytest tests/test_pa1.py::TestDLP_OWF -v
 
 # Run with coverage
-pytest tests/ --cov=src --cov-report=html
+python3 -m pytest tests/ --cov=src --cov-report=html
 ```
+
+## Bug Fixes Applied
+
+1. `src/primality/miller_rabin.py`
+  - Fixed `gen_prime(bits)` candidate construction to avoid `ValueError: negative shift count`.
+  - Candidate is now masked to `bits`, then highest bit and odd parity bits are explicitly set.
+
+2. `src/foundations/owf.py`
+  - Updated imports from `src.interfaces.*` to `interfaces.*`.
+
+3. `src/prf/ggm_prf.py`
+  - Updated import from `src.interfaces.prf` to `interfaces.prf`.
+
+4. Execution guidance
+  - Standardized all test commands to use `python3 -m pytest` in `venv`.
 
 ## Key Implementation Checklist
 

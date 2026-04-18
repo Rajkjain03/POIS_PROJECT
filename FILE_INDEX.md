@@ -134,7 +134,8 @@ tests/
 ### 1. **Verify Everything Works**
 ```bash
 cd /home/rajkjain/Downloads/POIS_PROJECT
-pytest tests/ -v
+source venv/bin/activate
+python3 -m pytest tests/ -v
 # Expected: ALL TESTS PASS ✓
 ```
 
@@ -183,7 +184,7 @@ Before sharing with team, verify:
 - [ ] Directory structure created (`src/`, `tests/`, `interfaces/`)
 - [ ] All source files exist and have content
 - [ ] All test files exist and can run
-- [ ] `pytest tests/ -v` passes all tests
+- [ ] `python3 -m pytest tests/ -v` passes all tests
 - [ ] No external crypto libraries imported
 - [ ] Documentation files readable and complete
 

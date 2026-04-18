@@ -93,13 +93,15 @@ ls -la  # Verify structure
 
 ### Step 2: Install Dependencies
 ```bash
-pip install -r requirements.txt
+python3 -m venv venv
+source venv/bin/activate
+python3 -m pip install -r requirements.txt
 ```
 
 ### Step 3: Run Tests
 ```bash
 # Run all your tests
-pytest tests/test_pa1.py tests/test_pa2.py tests/test_pa13.py -v
+python3 -m pytest tests/test_pa1.py tests/test_pa2.py tests/test_pa13.py -v
 
 # Expected output: All tests PASS ✓
 ```
@@ -159,7 +161,7 @@ print(f"PRF output: {result.hex()}")
 
 ### 📌 Important Reminders
 - **No external crypto libraries** — All code uses only os.urandom + Python int
-- **Tests must pass** — Run `pytest tests/ -v` before committing
+- **Tests must pass** — Run `python3 -m pytest tests/ -v` before committing
 - **Bidirectional reductions** — Both A ⇒ B and B ⇒ A are implemented
 - **Shared with team** — Your utilities unblock Kanishk, Shubham, Shobhan
 
@@ -238,8 +240,9 @@ Your code enables:
 ### To Install & Test
 ```bash
 cd /home/rajkjain/Downloads/POIS_PROJECT
-pip install -r requirements.txt
-pytest tests/test_pa*.py -v
+source venv/bin/activate
+python3 -m pip install -r requirements.txt
+python3 -m pytest tests/test_pa*.py -v
 ```
 
 ### To Run Interactively
@@ -282,4 +285,4 @@ Everything is set up and ready for you to work on. All implementations are compl
 
 **Setup Date:** April 18, 2026  
 **Project Status:** ✅ Complete and Ready for Use  
-**Next Action:** Run `pytest tests/ -v` to verify
+**Next Action:** Run `python3 -m pytest tests/ -v` to verify

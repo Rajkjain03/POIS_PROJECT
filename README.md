@@ -84,21 +84,27 @@ POIS_PROJECT/
 cd /home/rajkjain/Downloads/POIS_PROJECT
 ```
 
-### 2. Install Dependencies
+### 2. Create and Activate Virtual Environment
 ```bash
-pip install -r requirements.txt
+python3 -m venv venv
+source venv/bin/activate
 ```
 
-### 3. Run Tests (Verify Setup)
+### 3. Install Dependencies
+```bash
+python3 -m pip install -r requirements.txt
+```
+
+### 4. Run Tests (Verify Setup)
 ```bash
 # Run all tests
-pytest tests/ -v
+python3 -m pytest tests/ -v
 
 # Run specific member's tests (e.g., Raj)
-pytest tests/test_pa1.py tests/test_pa2.py tests/test_pa13.py -v
+python3 -m pytest tests/test_pa1.py tests/test_pa2.py tests/test_pa13.py -v
 
 # Run with coverage
-pytest tests/ --cov=src --cov-report=html
+python3 -m pytest tests/ --cov=src --cov-report=html
 ```
 
 ### 4. Start Coding
@@ -127,6 +133,13 @@ Every bidirectional pair must implement BOTH directions:
 | CRHF ⇔ MAC | MAC compression + MD | MAC is collision-resistant |
 | CRHF ⇔ HMAC | HMAC construction | HMAC keyed is CR hash |
 | HMAC ⇔ MAC | HMAC directly | HMAC = MAC when secure |
+
+### 🛠️ Recent Bug Fixes (Apr 18, 2026)
+- Prime generation bug fixed in `src/primality/miller_rabin.py`: `gen_prime()` no longer performs a negative bit shift.
+- Import path bug fixed:
+    - `src/foundations/owf.py` now imports from `interfaces.owf` and `interfaces.prg`.
+    - `src/prf/ggm_prf.py` now imports from `interfaces.prf`.
+- Environment/run guidance updated to use `venv` + `python3 -m pytest` consistently.
 
 ### 📝 Full Reduction Chain in Code
 Every reduction must be traceable in actual function calls:

@@ -37,18 +37,20 @@
 ### 1. Set Up Python Environment
 ```bash
 cd /home/rajkjain/Downloads/POIS_PROJECT
-pip install -r requirements.txt  # Install pytest
+python3 -m venv venv
+source venv/bin/activate
+python3 -m pip install -r requirements.txt
 ```
 
 ### 2. Run Your Tests
 ```bash
 # Test all your implementations
-pytest tests/test_pa1.py tests/test_pa2.py tests/test_pa13.py -v
+python3 -m pytest tests/test_pa1.py tests/test_pa2.py tests/test_pa13.py -v
 
 # Or run specific tests
-pytest tests/test_pa13.py -v  # Test Miller-Rabin
-pytest tests/test_pa1.py -v   # Test OWF & PRG
-pytest tests/test_pa2.py -v   # Test GGM PRF
+python3 -m pytest tests/test_pa13.py -v  # Test Miller-Rabin
+python3 -m pytest tests/test_pa1.py -v   # Test OWF & PRG
+python3 -m pytest tests/test_pa2.py -v   # Test GGM PRF
 ```
 
 ### 3. Test Individual Components
@@ -158,10 +160,16 @@ POIS_PROJECT/
 ## 📞 Support
 
 If you hit any issues:
-1. Check test error messages: `pytest -v` shows line numbers
+1. Check test error messages: `python3 -m pytest -v` shows line numbers
 2. Review comments in each `.py` file for implementation details
 3. See `RAJ_README.md` for detailed cryptographic explanations
 4. Check project spec PDF for security definitions
+
+### Common Fixes Applied
+1. If `python` is not found, use `python3`.
+2. If `No module named pytest`, activate `venv` and install requirements.
+3. If `ModuleNotFoundError: src.interfaces`, make sure source uses `interfaces.*` imports.
+4. If prime generation fails with `negative shift count`, update to the fixed `gen_prime()` implementation in `src/primality/miller_rabin.py`.
 
 ---
 
