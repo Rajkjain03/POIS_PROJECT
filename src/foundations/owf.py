@@ -12,8 +12,8 @@ where x_{i+1} = f(x_i) and b is a hard-core predicate
 """
 
 from abc import ABC, abstractmethod
-from src.interfaces.owf import OWF
-from src.interfaces.prg import PRG
+from interfaces.owf import OWF
+from interfaces.prg import PRG
 from src.utils.random_utils import generate
 from src.utils.mod_exp import square_and_multiply
 from src.primality.miller_rabin import gen_prime_safe
